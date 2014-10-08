@@ -1,7 +1,7 @@
 from subprocess import *
 import os
 
-def gradeFENICS(grader_path, grader_config, student_response, sandbox):
+def grade(grader_path, grader_config, student_response, sandbox):
   errors = []
   aux = []
   sout, serr = Popen(["/edx/app/xserver/venvs/xserver-sandbox/bin/python","-c",student_response,"-v"], stdout=PIPE, stderr=PIPE).communicate()
