@@ -6,14 +6,15 @@ def grade(grader_path, grader_config, student_response, sandbox):
   aux = []
   sout, serr = Popen(["/edx/app/xserver/venvs/xserver-sandbox/bin/python","-c",student_response,"-v"], stdout=PIPE, stderr=PIPE).communicate()
   if(serr == ""):
-        correct = True
-	      shrt_desc = "Script output:"
-	      long_desc = " "
-	      corr = True
-	      aux = [[shrt_desc, long_desc, corr, " ", sout]]
+	correct = True
+	shrt_desc = "Script output:"
+	long_desc = " "
+	corr = True
+	aux = [[shrt_desc, long_desc, corr, " ", sout]]
     else:
         correct = False
         errors = [serr,sout]
+
     results = {
         'correct': correct,
         'score': 1,
